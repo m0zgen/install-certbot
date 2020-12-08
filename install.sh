@@ -3,13 +3,14 @@
 # https://certbot.eff.org/lets-encrypt/centosrhel7-nginx
 
 # Install snapd
-yum install snapd
+yum install snapd -y
 systemctl enable --now snapd.socket
 ln -s /var/lib/snapd/snap /snap
 
 # Update snapd and install certbot
 sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Simple help
 echo -e "You can use these commands:\n"
